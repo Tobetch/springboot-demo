@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS task(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30),
+    content VARCHAR(100),
+    deadline DATETIME
+)
