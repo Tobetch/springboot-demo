@@ -1,5 +1,11 @@
 package com.raisetech.springbootdemo.Controller;
 
+import java.util.List;
+
+import com.raisetech.springbootdemo.Domain.Task;
+import com.raisetech.springbootdemo.Service.TaskService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,15 +15,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class TaskController {
 
+    @Autowired
+    TaskService service;
+
     // READ
     @GetMapping
-    public String index(Model m) {
+    public String index(Task task, Model m) {
+        List<Task> tasks = service.findAll();
+        m.addAttribute("tasks", tasks);
         return "index";
     }
 
     // CREATE
-    public void create(Model m) {
-
+    public String create(Task task, Model m) {
+        return "index";
     }
 
     // UPDATE
