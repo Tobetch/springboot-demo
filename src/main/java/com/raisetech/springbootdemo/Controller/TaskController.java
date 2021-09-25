@@ -21,8 +21,8 @@ public class TaskController {
     // READ
     @GetMapping
     public String index(Task task, Model m) {
-        List<Task> tasks = service.findAll();
-        m.addAttribute("tasks", tasks);
+        List<Task> taskList = service.findAll();
+        m.addAttribute("taskList", taskList);
         return "index";
     }
 
