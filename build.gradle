@@ -28,6 +28,13 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+configurations {
+    developmentOnly
+    runtimeClasspath {
+            extendsFrom developmentOnly
+    }
+}
+
 test {
 	useJUnitPlatform()
 }
